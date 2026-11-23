@@ -1,0 +1,1 @@
+let id=null,left=1500,notify=()=>{};export function start(cb){notify=cb||notify;if(id)return;id=setInterval(()=>{left=Math.max(0,left-1);notify(left);if(!left)stop();},1000);notify(left);}export function stop(){clearInterval(id);id=null;}export function reset(cb){stop();left=1500;(cb||notify)(left);}
